@@ -13,7 +13,7 @@ const pageHandler = (page) => {
   }
 }
 
-app.get('/', (req, res) => res.redirect(''))
+app.get('/', (req, res) => res.send(''))
 app.get('/stats', (req, res) => res.send("Error: no stat page requested"))
 app.get('/stats/:page', async (req, res) => res.send(await pageHandler(req.params["page"])))
 
