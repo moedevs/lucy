@@ -5,16 +5,19 @@ const redditUrl = "https://reddit.com/r/eaglejump/about.json"
 
 const get = async (url) => {
   const r = await fetch(url)
-  const b = await r.json()
-  return b
+  return r.json()
 }
 
 const getDiscordData = async () => {
-  const discordData = await get(discordUrl)
-  console.log(discordData)
+  const discordData = (await get(discordUrl)).approximate_member_count
   return discordData
 }
 
+const getRedditData = async () => {
+  const redditData = (await get(redditUrl)).data.subscribers
+  return redditData
+}
+
 module.exports = async () => {
-  return {"discord": await getDiscordData()}
+  return {"discord": await getDiscordData(), "reddit": await getRedditData()}
 }
