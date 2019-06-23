@@ -3,17 +3,20 @@ import { get } from "./helpers"
 const trUrl = "https://data.typeracer.com/games?playerId=tr:"
 const trArg = "&universe=play&startDate=0"
 
-const filter = (string) => {
+const filter = (string: string) => {
   const exp = /[^a-z0-9_]/g
-  const newString = string.toLowerCase()
-  return newString.replace(exp, "")
+  string.toLowerCase()
+  return string.replace(exp, "")
 } 
 
-const trUrlBuilder = (u) => {
+const trUrlBuilder = (u: string) => {
   const username = filter(u)
   return `${trUrl}${username}${trArg}`
 }
 
-export default (user) => {
+const getData = (user: string) => get(trUrlBuilder(user))
 
+export default async (user: string) => {
+  const [ trData ] = await Promise.all([getData(user)])
+  return trData
 }
