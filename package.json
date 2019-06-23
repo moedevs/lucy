@@ -1,17 +1,17 @@
 {
   "name": "lucy",
-  "version": "1.0.0",
-  "description": "lucy",
-  "main": "index.js",
+  "version": "0.0.3",
+  "description": "lucy api",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./src/index.js"
+    "start": "tsc --skipLibCheck && node dist/index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/moedevs/lucy.git"
   },
-  "author": "",
+  "author": "whamer100",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/moedevs/lucy/issues"
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/moedevs/lucy#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "typescript": "^3.5.2"
   }
 }

@@ -1,7 +1,7 @@
-const express = require('express')
+import express from 'express';
 const app = express()
 const port = 6969
-const getStats = require("./social")
+import getStats from "./social";
 
 const pageHandler = (page) => {
   if (page == "social") {
@@ -13,8 +13,13 @@ const pageHandler = (page) => {
   }
 }
 
+const trHandler = (user) => {
+  
+}
+
 app.get('/', (req, res) => res.send(''))
 app.get('/stats', (req, res) => res.send("Error: no stat page requested"))
 app.get('/stats/:page', async (req, res) => res.send(await pageHandler(req.params["page"])))
+app.get('/tr/:user', async (req, res) => res.send(await trHandler(req.params["user"])))
 
 app.listen(port, () => console.log(`listening on port ${port}`))
