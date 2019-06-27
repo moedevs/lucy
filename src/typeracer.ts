@@ -16,7 +16,4 @@ const trUrlBuilder = (u: string) => {
 
 const getData = (user: string) => get(trUrlBuilder(user))
 
-export default async (user: string) => {
-  const [ trData ] = await Promise.all([getData(user)])
-  return trData
-}
+export default async (user: string) => await getData(user)
