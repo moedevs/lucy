@@ -12,7 +12,7 @@ const pageHandler = (page: string) => {
   if (page == "social") {
     return getStats()
   } else if (page == "bot") {
-    return "placeholder for datadog redirect"
+    return process.env.DATADOG_REDIRECT_URL!
   } else {
     return `Error: stat page ${page} not found.`
   }

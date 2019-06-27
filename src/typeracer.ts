@@ -1,7 +1,7 @@
 import { get } from "./helpers"
 
-const trUrl = "https://data.typeracer.com/games?playerId=tr:"
-const trArg = "&universe=play&startDate=0"
+const trUrl = process.env.TR_URL!
+const trArg = process.env.TR_ARGS!
 
 const filter = (string: string) => {
   const exp = /[^a-z0-9_]/g

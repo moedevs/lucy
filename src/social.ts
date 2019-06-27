@@ -1,7 +1,7 @@
 import { get } from "./helpers"
 
-const discordUrl = "https://discordapp.com/api/v6/invite/ZWW5CJw?with_counts=true"
-const redditUrl = "https://reddit.com/r/eaglejump/about.json"
+const discordUrl = process.env.SOCIAL_DISCORD_URL!
+const redditUrl = process.env.SOCIAL_REDDIT_URL!
 
 const getDiscordData = () =>
   get(discordUrl).then(res => res.approximate_member_count)
